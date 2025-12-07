@@ -1,89 +1,75 @@
 +++
 title = "Atelier"
 weight = 3
-+++,
++++
 
 ## Atelier de GLSL
 
-### Préparation à l'atelier
+### Préparation
 
-Il existe plusieurs façons de coder en GLSL. Pour cet atelier, vous aurez deux choix :
+Il y a deux façons principales de coder en GLSL pour cet atelier :
 
-1. **Utiliser ShaderToy** : [https://www.shadertoy.com/](https://www.shadertoy.com/)
-2. **Utiliser le dépôt Git** : [https://github.com/Mohamed-Brahimi/Atelier-glsl.git](https://github.com/Mohamed-Brahimi/Atelier-glsl.git) et créer un fork
+1. **ShaderToy** : [https://www.shadertoy.com/](https://www.shadertoy.com/) - Rapide pour tester des idées
+2. **Dépôt Git** : [https://github.com/Mohamed-Brahimi/Atelier-glsl.git](https://github.com/Mohamed-Brahimi/Atelier-glsl.git) - Meilleur pour sauvegarder votre travail
 
-Je vous conseille d'utiliser le dépôt Git, puisqu'un dépôt similaire sera utilisé lors du travail pratique. Cependant, j'expliquerai tout de même comment commencer avec les deux outils.
+Je recommande fortement le dépôt Git. Les notes de cours utilisent VS Code, donc vous aurez plus de facilité à suivre.
 
 ---
 
-## Option 1 : Utiliser ShaderToy
+## Option 1 : ShaderToy (rapide mais temporaire)
 
-### Étapes pour commencer
+C'est parfait si vous voulez juste expérimenter sans installer quoi que ce soit.
 
-1. Rendez-vous sur [https://www.shadertoy.com/](https://www.shadertoy.com/)
-2. Vous verrez de nombreux shaders créés par la communauté, mais ce n'est pas ce qui nous intéresse pour l'instant
-3. Cliquez sur **"New"** (Nouveau) dans le coin supérieur droit de l'écran
-4. Un éditeur de code s'ouvrira avec un shader de base
+1. Allez sur [https://www.shadertoy.com/](https://www.shadertoy.com/)
+2. Cliquez sur **"New"** en haut à droite
+3. Un éditeur s'ouvrira avec un shader de base déjà en place
 
-### Interface de ShaderToy
-
-Pour faciliter votre expérience de codage, voici une légende de l'interface :
+Voici l'interface :
 
 ![Légende de l'interface ShaderToy](/images/image/atelier-1.png)
 
-**Zones principales :**
-- **Zone de code** : Où vous écrivez votre shader
-- **Zone d'aperçu** : Où vous voyez le résultat en temps réel
-- **Panneau de contrôle** : Pour ajuster les paramètres et compiler le code
+## Option 2 : Dépôt Git (recommandé)
 
-## Option 2 : Utiliser le dépôt Git (Recommandé)
+### Installation
 
-### Étapes d'installation
+**1. Fork le dépôt**
 
-**1. Créer un fork du dépôt**
+Allez sur [https://github.com/Mohamed-Brahimi/Atelier-glsl.git](https://github.com/Mohamed-Brahimi/Atelier-glsl.git) et cliquez sur **"Fork"** en haut à droite. Ça va créer votre propre copie.
 
-- Dirigez-vous vers [https://github.com/Mohamed-Brahimi/Atelier-glsl.git](https://github.com/Mohamed-Brahimi/Atelier-glsl.git)
-- Cliquez sur le bouton **"Fork"** en haut à droite
-- Cela créera une copie du dépôt sur votre compte GitHub
-
-**2. Cloner le dépôt sur votre machine**
+**2. Clone sur votre machine**
 
 ```bash
 git clone https://github.com/VOTRE-NOM-UTILISATEUR/Atelier-glsl.git
 cd Atelier-glsl
 ```
 
-Remplacez `VOTRE-NOM-UTILISATEUR` par votre nom d'utilisateur GitHub.
-
-**3. Ouvrir le projet dans VS Code**
+**3. Ouvrir dans VS Code**
 
 ```bash
 code .
 ```
 
-**4. Ouvrir le Dev Container**
+**4. Dev Container**
 
-**Prérequis** : Assurez-vous que Docker est installé et en cours d'exécution sur votre machine.
+**Important** : Docker doit être installé et en marche sur votre machine.
 
-- VS Code devrait détecter le fichier `.devcontainer` et vous proposer d'ouvrir le projet dans un conteneur
-- Cliquez sur **"Reopen in Container"**
-- Attendez que le conteneur se construise (cela peut prendre quelques minutes la première fois)
+VS Code va détecter le fichier `.devcontainer` et proposer d'ouvrir le projet dans un conteneur. Cliquez sur **"Reopen in Container"** et attendez que ça se construise (ça peut prendre quelques minutes la première fois).
 
-### Utilisation de l'environnement
+### Comment utiliser l'environnement
 
-**1. Écrire votre code**
+**Écrire votre code**
 
-Ouvrez le fichier `Atelier.frag` et écrivez votre code GLSL dedans.
+Tout votre code va dans `Atelier.frag`.
 
-**2. Afficher le rendu**
+**Voir le résultat**
 
-- Appuyez sur `Ctrl+Shift+P` (ou `Cmd+Shift+P` sur Mac) pour ouvrir la palette de commandes
-- Tapez **"Show GLSL Canvas"** et appuyez sur Entrée
-- Une fenêtre d'aperçu s'ouvrira à côté de votre code
+- Faites `Ctrl+Shift+P` (ou `Cmd+Shift+P` sur Mac)
+- Tapez **"Show GLSL Canvas"**
+- Une preview s'ouvre à côté de votre code
 
-**3. Tester votre code**
+**Tester que ça marche**
 
-Pour vérifier que tout fonctionne, copiez un exemple des notes de cours dans `Atelier.frag`. Par exemple :
+Copiez cet exemple dans `Atelier.frag` :
 
 ```glsl
 #ifdef GL_ES
@@ -100,142 +86,159 @@ void main() {
 }
 ```
 
-Si vous voyez un dégradé de couleurs qui change avec le temps, tout fonctionne correctement.
+Si vous voyez un dégradé qui change avec le temps, c'est bon.
 
-**4. Sauvegarder votre travail**
+**Sauvegarder**
 
 ```bash
 git add .
-git commit -m "Description de vos modifications"
+git commit -m "Ajout exercice 1" # ou autre description
 git push
 ```
 
 ---
-## Exercice 1 : Création de formes circulaires
 
-### Objectif
+## Exercice 1 : Créer un cercle
 
-Créer un cercle centré à l'écran, puis le transformer en dégradé radial animé.
+### Ce qu'on veut faire
 
-### Partie 1 : Cercle simple (15-20 minutes)
+Un cercle blanc centré sur fond noir. Simple, mais ça introduit des concepts importants.
 
-Créez un cercle blanc sur fond noir en utilisant la distance depuis le centre de l'écran.
+### Concepts clés
 
-#### Nouveaux concepts
-
-**1. Centrage des coordonnées**
+**Centrer les coordonnées**
 
 ```glsl
 st -= 0.5;
 ```
 
-Cette ligne déplace l'origine des coordonnées au centre de l'écran. Sans cette ligne, l'origine (0, 0) est dans le coin inférieur gauche.
+Ça déplace l'origine (0,0) au centre de l'écran au lieu du coin.
 
-**2. La fonction `length()`**
+**La fonction `length()`**
 
-Cette fonction calcule la **distance euclidienne** entre le pixel actuel et l'origine (0, 0).
+Elle calcule la distance entre un point et l'origine. C'est exactement ce qu'il faut pour un cercle, puisque tout les points d'un cercle sont à la même distance du centre.
 
-Après avoir centré avec `st -= 0.5`, cette distance représente la distance depuis le centre de l'écran :
-- Au centre exact : `dist = 0.0`
-- Aux bords : `dist ≈ 0.5` (sur les côtés) ou `dist ≈ 0.7` (aux coins)
+### À faire
 
-Dans cet exercice, il permet de définir la position du cercle 
-
-#### Instructions
-
-1. Normalisez les coordonnées avec `gl_FragCoord.xy / u_resolution`
-2. Centrez les coordonnées en soustrayant `0.5`
-3. Calculez la distance du centre avec `length()`
-4. Utilisez `smoothstep()` pour créer un cercle autour d'un rayon
-5. Inversez la valeur pour obtenir un cercle blanc sur fond noir
-
-#### Validation
-
-Vous devriez obtenir un cercle blanc centré avec des bords lisses sur un fond noir.
-## Exercice 2 : Cercle animé - Transition jour/nuit
-
-### Objectif
-
-Créer un cercle dont la taille et la couleur varient au fil du temps, simulant une transition entre un soleil chaud et une lune froide, avec un fond qui change également.
-
-#### Concepts Clé
-
-**1. Animation de la taille**
-
-Au lieu d'un rayon fixe, nous allons faire varier le rayon du cercle avec le temps.
-
-**2. Animation de couleur avec `mix()`**
-
-Nous allons mélanger deux couleurs en fonction du temps pour simuler le changement de couleur du soleil à la lune.
-
-#### Validation
-
-Vous devriez voir un cercle qui change de taille et de couleur, simulant un cycle jour/nuit.
-## Exercice 3 : Aurore boréale animée
-
-### Objectif
-
-Créer une aurore boréale stylisée avec des ondes de couleur qui ondulent dans un ciel nocturne. Cet exercice combine les techniques vues précédemment avec de nouveaux concepts de fonctions sinusoïdales multiples.
-
-### Concepts à utiliser
-
-Pour réussir cet exercice, vous devrez combiner :
-- Les coordonnées normalisées (Exercice 1)
-- Les animations avec `u_time` (Exercice 2)
-- La fonction `sin()` pour créer des ondes
-- La fonction `mix()` pour les couleurs (notes de cours)
-- La fonction `smoothstep()` pour créer des bandes de lumière (notes de cours)
+1. Normalisez les coordonnées : `gl_FragCoord.xy / u_resolution`
+2. Centrez-les avec `st -= 0.5`
+3. Calculez la distance du centre avec `length(st)`
+4. Utilisez `smoothstep()` pour créer un cercle net autour d'un certain rayon 
+5. Inversez si nécessaire pour avoir blanc sur noir  ( 1 - cercle)
 
 ### Résultat attendu
 
-Vous devriez observer :
-- Un fond bleu foncé représentant le ciel nocturne
-- Des bandes ondulantes vertes et bleues qui bougent horizontalement
-- Un mouvement fluide et continu des aurores
-- Une impression de profondeur avec plusieurs couches d'ondes
-
-### Indices
-
-**Pour créer l'effet de vague :**
-```glsl
-// Exemple de structure (à adapter)
-float wave = sin(st.x * 6.0 + u_time);
-```
-
-**Pour créer plusieurs ondes :**
-Additionnez plusieurs ondes avec différents paramètres. Pensez à ajuster la position verticale de chaque onde.
-
-**Pour les couleurs d'aurore :**
-- Vert typique : `vec3(0.0, 1.0, 0.5)`
-- Bleu-vert : `vec3(0.0, 0.8, 0.8)`
-- Violet : `vec3(0.5, 0.0, 1.0)`
-
-### Validation
-
-Vous devriez obtenir :
-- Un ciel bleu foncé stable en arrière-plan
-- Des ondes lumineuses qui se déplacent de droite à gauche (ou inversement)
-- Au moins deux couches d'ondes visibles
-- Des transitions de couleur douces entre le ciel et les aurores
-- Un mouvement fluide sans saccades
-
-Si vos ondes sont statiques, vérifiez que vous utilisez bien `u_time` dans vos calculs.
-
-Si vos ondes sont trop rapides ou trop lentes, ajustez le coefficient multiplicateur de `u_time`.
-
-
-### Temps estimé
-
-35-50 minutes pour la version de base, selon votre aisance avec les fonctions sinusoïdales et les superpositions de formes.
+Un cercle blanc bien net au centre, avec des bords doux grâce à `smoothstep()`.
 
 ---
 
-## Pour aller plus loin (Optionnel)
+## Exercice 2 : Cercle animé
 
-Si vous avez terminé l'exercice et souhaitez expérimenter davantage :
+### Objectif
 
-### Inspiration
+Animer le cercle pour qu'il change de taille et de couleur avec le temps. L'idée c'est de simuler un cycle jour/nuit - soleil chaud qui devient lune froide.
 
-Visitez [ShaderToy](https://www.shadertoy.com/browse) pour voir ce que d'autres créateurs ont réalisé. Essayez de comprendre leur code en vous appuyant sur les concepts vus en classe.
+### Nouveaux concepts
+
+**Animation de taille**
+
+Au lieu d'un rayon fixe (genre `0.3`), on le fait varier :
+```glsl
+float rayon = Longueur + 0.1 * abs(sin(u_time));
+```
+
+**Mix de couleurs**
+
+On mélange deux couleurs selon le temps. Je suggère :
+- Jaune-orange pour le "soleil"
+- Blanc-bleuté pour la "lune"
+
+Utilisez `mix()` comme vu dans les notes de cours.
+
+### Ce que vous devriez voir
+
+Un cercle qui pulse (change de taille) et qui oscille entre des couleurs chaudes et froides. Le fond peut aussi changer si vous voulez pousser plus loin.
+
+
+---
+
+## Exercice 3 : Aurore boréale
+
+### L'idée
+
+Créer quelque chose qui ressemble à une aurore boréale : un ciel bleu-noir avec des bandes de lumière verte qui ondulent.
+
+### Partie 1 : Une bande qui ondule (20-30 min)
+
+**Ce dont vous avez besoin :**
+- Coordonnées normalisées
+- `u_time` pour l'animation
+- `sin()` pour créer l'onde
+- `mix()` pour les couleurs
+- `smoothstep()` pour la bande lumineuse
+
+**Créer l'onde**
+
+```glsl
+float wave = sin(st.x * 6.0 + u_time);
+```
+
+Ça va créer une vague qui se déplace horizontalement.
+
+**La bande lumineuse**
+
+Comme dans les notes (ligne 416-417), utilisez `smoothstep()` deux fois pour créer une bande autour de votre onde. En gros :
+- Un `smoothstep()` pour le bord du haut
+- Un `smoothstep()` pour le bord du bas
+- Soustraire l'un de l'autre
+
+**Couleurs suggérées**
+
+- Fond : Bleu très foncé, presque noir
+- Aurore : `vec3(0.0, 1.0, 0.5)` pour du vert, ou `vec3(0.0, 0.8, 0.8)` pour du bleu-vert
+
+**Validation**
+
+Vous devez avoir :
+- Un fond stable et sombre
+- Une bande qui bouge sans saccades
+- Des transitions douces (pas de bords durs)
+
+Si l'onde ne bouge pas, vous avez probablement oublié `u_time` quelque part.
+
+### Partie 2 : Plusieurs bandes (15-25 min supplémentaires)
+
+Maintenant qu'une bande fonctionne, on en ajoute d'autres pour plus de réalisme.
+
+**L'approche**
+
+1. Dupliquez votre code de bande
+2. Changez les paramètres :
+   - Vitesse différente : `u_time * 0.7` au lieu de `u_time`
+   - Position différente : ajoutez `0.2` à l'équation
+   - Couleur différente : violet `vec3(0.6, 0.2, 0.8)` ou cyan `vec3(0.0, 0.7, 1.0)`
+3. Combinez avec `mix()` :
+
+```glsl
+color = mix(color, couleur1, bande1);
+color = mix(color, couleur2, bande2);
+```
+
+**Astuces**
+
+- Utilisez `-u_time` pour une onde qui va dans l'autre sens
+- Multipliez `u_time` par différents facteurs (0.5, 0.8, 1.3) pour des vitesses variées
+- Rendez certaines bandes moins intenses en jouant avec les valeurs de `smoothstep()`
+
+**Ce que ça donne**
+
+Plusieurs bandes qui bougent indépendamment, avec différentes couleurs et vitesses. Ça devrait vraiment ressembler à une aurore maintenant.
+
+---
+
+## Pour aller plus loin
+
+
+Allez voir sur [ShaderToy](https://www.shadertoy.com/browse) de nouveaux shaders. Vous pourrez voir que nous n'avons touché qu'au basique.
 
 ---

@@ -168,7 +168,7 @@ Un cercle qui pulse (change de taille) et qui oscille entre des couleurs chaudes
 
 Créer quelque chose qui ressemble à une aurore boréale : un ciel bleu-noir avec des bandes de lumière verte qui ondulent.
 
-### Partie 1 : Une bande qui ondule (20-30 min)
+### Partie 1 : Une bande qui ondule
 
 **Ce dont vous avez besoin :**
 - Coordonnées normalisées
@@ -206,7 +206,7 @@ Vous devez avoir :
 
 Si l'onde ne bouge pas, vous avez probablement oublié `u_time` quelque part.
 
-### Partie 2 : Plusieurs bandes (15-25 min supplémentaires)
+### Partie 2 : Plusieurs bandes
 
 Maintenant qu'une bande fonctionne, on en ajoute d'autres pour plus de réalisme.
 

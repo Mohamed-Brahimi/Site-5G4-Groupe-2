@@ -35,11 +35,6 @@ Regardons comment ce code fonctionne :
 
 **La variable `gl_FragColor`** - Il s'agit d'une variable intégrée à GLSL. GLSL possède plusieurs variables prédéfinies que nous modifierons tout au long de ce cours pour créer différents effets visuels. La variable `gl_FragColor` détermine la couleur finale du pixel affiché.
 
-**Le vecteur `vec4`** - C'est un vecteur à quatre dimensions (d'où son nom). Les quatre composantes représentent respectivement :
-- La valeur de rouge (R)
-- La valeur de vert (G)
-- La valeur de bleu (B)
-- L'alpha (A) pour la transparence
 
 Ces valeurs doivent être comprises entre 0.0 et 1.0. Dans notre exemple, le code affiche du vert pur car seule la deuxième composante (vert) est à 1.0.
 

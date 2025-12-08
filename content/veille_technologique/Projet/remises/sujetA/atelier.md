@@ -175,22 +175,16 @@ Créer quelque chose qui ressemble à une aurore boréale : un ciel bleu-noir av
 - `u_time` pour l'animation
 - `sin()` pour créer l'onde
 - `mix()` pour les couleurs
-- `smoothstep()` pour la bande lumineuse
+- `plot()` pour la bande lumineuse
 
 **Créer l'onde**
 
 ```glsl
-float wave = sin(st.x * 6.0 + u_time);
+float wave = sin(vecteur x * 6.0 + temps);
 ```
 
 Ça va créer une vague qui se déplace horizontalement.
 
-**La bande lumineuse**
-
-Comme dans les notes (ligne 416-417), utilisez `smoothstep()` deux fois pour créer une bande autour de votre onde. En gros :
-- Un `smoothstep()` pour le bord du haut
-- Un `smoothstep()` pour le bord du bas
-- Soustraire l'un de l'autre
 
 **Couleurs suggérées**
 
@@ -216,19 +210,8 @@ Maintenant qu'une bande fonctionne, on en ajoute d'autres pour plus de réalisme
 2. Changez les paramètres :
    - Vitesse différente : `u_time * 0.7` au lieu de `u_time`
    - Position différente : ajoutez `0.2` à l'équation
-   - Couleur différente : violet `vec3(0.6, 0.2, 0.8)` ou cyan `vec3(0.0, 0.7, 1.0)`
-3. Combinez avec `mix()` :
-
-```glsl
-color = mix(color, couleur1, bande1);
-color = mix(color, couleur2, bande2);
-```
-
-**Astuces**
-
-- Utilisez `-u_time` pour une onde qui va dans l'autre sens
-- Multipliez `u_time` par différents facteurs (0.5, 0.8, 1.3) pour des vitesses variées
-- Rendez certaines bandes moins intenses en jouant avec les valeurs de `smoothstep()`
+   - Couleur différente : violet `vec3(0.6, 0.2, 0.8)` ou cyan `vec3(0.0745, 0.5804, 0.3843)`
+3. Ajouter votre bande
 
 **Ce que ça donne**
 

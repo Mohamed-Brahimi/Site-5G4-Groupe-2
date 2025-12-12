@@ -225,3 +225,103 @@ Plusieurs bandes qui bougent indépendamment, avec différentes couleurs et vite
 Allez voir sur [ShaderToy](https://www.shadertoy.com/browse) de nouveaux shaders. Vous pourrez voir que nous n'avons touché qu'au basique.
 
 ---
+
+## Solutions
+
+### Exercice 1 : Cercle simple
+
+```glsl
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    st -= .5;
+    vec3 color = vec3(1.0);
+    
+    float rayon = length(st);
+    float cercle = smoothstep(0.5, 0.5, rayon);
+    cercle = 1.0 - cercle;
+    color = vec3(cercle);
+    
+    gl_FragColor = vec4(color, 1.0);
+}
+```
+
+### Exercice 2 : Cercle animé (Cycle jour/nuit)
+
+```glsl
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    st -= .5;
+    vec3 color = vec3(1.0);
+    vec3 lune = vec3(0.4275, 1.0, 0.9725);
+    vec3 soleil = vec3(0.8471, 0.5804, 0.0);
+    vec3 cielMatin = vec3(0.0078, 0.6039, 1.0);
+    vec3 cielSoir = vec3(0.0157, 0.0392, 0.2314);
+    
+    float rayon = length(st) + 0.1 * abs(sin(u_time));
+    float cercle = smoothstep(0.5, 0.5, rayon);
+    cercle = 1.0 - cercle;
+    color = vec3(cercle);
+    
+    vec3 couleurFond = mix(cielMatin, cielSoir, abs(sin(u_time * .25)));   
+    vec3 couleurCerle = mix(soleil, lune, abs(sin(u_time * .25)));
+    color *= couleurCerle;
+    color = mix(couleurFond, color, .50);
+    
+    gl_FragColor = vec4(color, 1.0);
+}
+```
+
+### Exercice 3 : Aurore boréale
+
+```glsl
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+float plot(vec2 st, float pct){
+    return smoothstep(pct-0.2, pct, st.y) -
+           smoothstep(pct, pct+0.2, st.y);
+}
+
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    st = st * 2.0 - 1.0; // from (0,1) to (-1,1)
+    
+    // Première bande verte
+    float wave = sin(st.x * 6.0 + u_time) * .5;
+    vec3 color = vec3(0);
+    float pct = plot(st, wave);
+    color = mix(vec3(0.0, 0.0039, 0.1059), vec3(0.0902, 0.0, 0.1529), abs(sin(u_time*.01)));
+    color += pct * vec3(0.0745, 0.5804, 0.3843);
+    
+    // Deuxième bande (plus rapide)
+    st += .3;
+    wave = sin(st.x * 6.0 + u_time * 1.5) * .5;
+    pct = plot(st, wave);
+    color += pct * vec3(0.0157, 0.3412, 0.1255);
+
+    gl_FragColor = vec4(color, 1.0);
+}
+```
+
+---
